@@ -1,0 +1,44 @@
+1. troubleshooting.js solution
+
+function troubleshooting() {
+	const a = 1;
+	const b = 1;
+ 
+    return a + b;
+ 
+}
+ 
+2. enter a number - solution 
+
+number = Number(prompt("enter a number"));
+
+function numberChecker() {
+	if(number >= 10) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+3. lets do some math - solution
+
+const a = 1+8;
+const b = 22*3;
+const c = 5%4;
+const d = a-17;
+const e = a + b + c + d;
+
+module.exports = {a, b, c, d, e}
+
+4. direction-follow - solution
+
+const birthYear = 1948;
+const thisYear = 1965;
+const firstName = "Carlos";
+const lastName = "Stevenson";
+const age = thisYear - birthYear ;
+const fullName = firstName +" " + lastName;
+
+const greeting = "Hello! My name is " + fullName + " and I am " + age + " years old.";
+
+console.log(greeting);
