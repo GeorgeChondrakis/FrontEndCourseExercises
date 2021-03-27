@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+    <script>
+        let computerScore = 0;
+        let userScore = 0;
+
+        function computerPlay() {
+            const choices = ["Rock", "Paper", "Scissors"];
+            const randomNumber = Math.floor(Math.random() * 3);
+            return choices[randomNumber];
+        }
+
+        function playRound() {
+            
+            const computerChoice = computerPlay();
+            let userInput = prompt("Type Rock, Paper or Scissors to make a choice");
+            let playerChoice = userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
+
+            console.log(`Player: ${playerChoice}`)
+            console.log(`Computer: ${computerChoice}`)
+        
+
+            if (playerChoice == computerChoice) {
+                console.log(`Its a draw! ${playerChoice} equals ${computerChoice}`);
+                
+            }
+            else {     
+                switch (playerChoice) {
+                    case "Rock":  
+                        if (computerChoice == "Scissors") {  
+                            userScore++;
+                            console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+                        }
+                        else { 
+                            computerScore++;
+                            console.log(`You lose! ${computerChoice} beats ${playerChoice}`);
+                        }
+                        break;
+                    case "Paper":
+                        if (computerChoice == "Rock") { 
+                            userScore++;
+                            console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+                        }
+                    else {
+                        computerScore++;
+                        console.log(`You lose! ${computerChoice} beats ${playerChoice}`);    
+                        }
+                        break;
+                    case "Scissors":
+                        if (computerChoice == "Paper") { 
+                            userScore++;
+                            console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+                        }    
+                        else {
+                            computerScore++;
+                            console.log(`You lose! ${computerChoice} beats ${playerChoice}`);    
+                        }
+                        break;    
+                    default : {
+                        console.log("Enter a proper value");
+                        console.log(playerChoice);
+                        playRound();
+                        
+                        }
+       
+                }
+    
+        }
+        }
+
+        function finalResult() {
+            if (computerScore > userScore){
+                
+                console.log("You lose the game.")
+            } 
+            
+            else if (userScore > computerScore){
+                console.log("You win the game.");
+            }
+
+            else {
+                console.log("Its a draw");
+            }
+        }
+
+        function game() {
+ 
+            for (let i = 0; i<5; i++ ) {
+        
+            playRound();
+            console.log(`Your score is ${userScore}.`);
+            console.log(`Computer's score is ${computerScore}.`);
+            
+            }
+        
+        
+            
+        }
+        
+    game();
+    finalResult();
+    
+    </script>
+</body>
+</html>
