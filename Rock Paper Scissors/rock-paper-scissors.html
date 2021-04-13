@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Game</title>
 </head>
+
 <body>
     <script>
         let computerScore = 0;
         let userScore = 0;
+        let playerChoice;
+        let computerChoice;
 
         function computerPlay() {
             const choices = ["Rock", "Paper", "Scissors"];
@@ -17,95 +21,106 @@
         }
 
         function playRound() {
-            
+
             const computerChoice = computerPlay();
             let userInput = prompt("Type Rock, Paper or Scissors to make a choice");
+
+            if (userInput === null || userInput === "null") {
+                console.log("In case you r bored bye and c u soon, else type a correct value");
+                return;
+            }
+            
             let playerChoice = userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
+
 
             console.log(`Player: ${playerChoice}`)
             console.log(`Computer: ${computerChoice}`)
-        
 
-            if (playerChoice == computerChoice) {
+            if (playerChoice === computerChoice) {
                 console.log(`Its a draw! ${playerChoice} equals ${computerChoice}`);
-                
-            }
-            else {     
+
+            } else {
                 switch (playerChoice) {
-                    case "Rock":  
-                        if (computerChoice == "Scissors") {  
-                            userScore++;
-                            console.log(`You win! ${playerChoice} beats ${computerChoice}`);
-                        }
-                        else { 
-                            computerScore++;
-                            console.log(`You lose! ${computerChoice} beats ${playerChoice}`);
+                    case "Rock":
+                        if (computerChoice === "Scissors") {
+                            updateUserScore();
+                        } else {
+                            updateComputerScore();
                         }
                         break;
                     case "Paper":
-                        if (computerChoice == "Rock") { 
-                            userScore++;
-                            console.log(`You win! ${playerChoice} beats ${computerChoice}`);
-                        }
-                    else {
-                        computerScore++;
-                        console.log(`You lose! ${computerChoice} beats ${playerChoice}`);    
+                        if (computerChoice === "Rock") {
+                            updateUserScore();
+                        } else {
+                            updateComputerScore();
                         }
                         break;
                     case "Scissors":
-                        if (computerChoice == "Paper") { 
-                            userScore++;
-                            console.log(`You win! ${playerChoice} beats ${computerChoice}`);
-                        }    
-                        else {
-                            computerScore++;
-                            console.log(`You lose! ${computerChoice} beats ${playerChoice}`);    
+                        if (computerChoice === "Paper") {
+                            updateUserScore();
+                        } else {
+                            updateComputerScore();
                         }
-                        break;    
-                    default : {
+                        break;
+                    default: {
                         console.log("Enter a proper value");
                         console.log(playerChoice);
                         playRound();
-                        
-                        }
-       
+
+                    }
+
                 }
-    
+
+            }
+
+
         }
+
+        function updateUserScore() {
+            userScore++;
+            console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+        }
+
+        function updateComputerScore() {
+            computerScore++;
+            console.log(`You lose! ${computerChoice} beats ${playerChoice}`);
         }
 
         function finalResult() {
-            if (computerScore > userScore){
-                
-                console.log("You lose the game.")
-            } 
-            
-            else if (userScore > computerScore){
-                console.log("You win the game.");
-            }
+            if (computerScore > userScore) {
 
-            else {
+                console.log("You lose the game.")
+            } else if (userScore > computerScore) {
+                console.log("You win the game.");
+            } else {
                 console.log("Its a draw");
             }
         }
 
         function game() {
- 
-            for (let i = 0; i<5; i++ ) {
-        
-            playRound();
-            console.log(`Your score is ${userScore}.`);
-            console.log(`Computer's score is ${computerScore}.`);
+            //let userInput = prompt("Type Rock, Paper or Scissors to make a choice");
+
+            //if userInput === null || userInput === "null" 
+            //    console.log("Maybe another time we play again! Hit refresh if you want to play");
+            //    return;
             
+
+
+
+            for (let i = 0; i < 5; i++) {
+
+                playRound();
+                console.log(`Your score is ${userScore}.`);
+                console.log(`Computer's score is ${computerScore}.`);
+
             }
-        
-        
-            
+
+
+            finalResult();
         }
-        
-    game();
-    finalResult();
-    
+
+        game();
     </script>
 </body>
+
 </html>
