@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+
+<body>
+    <div class="div"></div>
+    <script>
+        // Create a <p> with red text that says "Hey I’m red!" and add it to the document’s body
+        const pelement = document.createElement("p");
+        pelement.style.color = "red";
+        pelement.textContent = "Hey I’m red!";
+        document.body.appendChild(pelement);
+
+        // Create and add an <h3> with blue text that says "I’m a blue h3!"
+        const h3el = document.createElement("h3");
+        h3el.style.color = "blue";
+        h3el.textContent = "I’m a blue h3!";
+        document.body.appendChild(h3el);
+
+        // Create and add a <div> with a black border and pink background color with the following elements inside of it:
+        const div = document.createElement("div");
+        div.style.border = "1px solid black";
+        div.style.backgroundColor = "pink";
+        document.body.appendChild(div);
+
+        // a. Another <h1> that says "I’m in a div"
+        const h1 = document.createElement("h1");
+        h1.textContent = "I’m in a div";
+        div.appendChild(h1);
+
+        // b. A <p> that says "ME TOO!"
+        const p2el = document.createElement("p");
+        p2el.textContent = "ME TOO!";
+        div.append(p2el);   
+    </script>
+</body>
+
+</html>
