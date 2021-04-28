@@ -5,14 +5,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <style>
+        
+        img {
+            width: 100px;
+        }
+
+        .btns {
+            width: 18%;
+            margin-top: 200px;
+            margin-right: 800px;
+            
+        }
+    </style>
 </head>
 
 <body>
+
+    <div class="container">
+        <div class="text-center">
+            <h4>Rock Paper Scissors Game</h4>
+            <h5>First to 5 Wins!</h5>
+        </div>
+        <div class="d-flex justify-content-evenly">
+            <div class="text-center">
+                <h5>Computer Score</h5>
+                <h4 id="comp-score">0</h4>
+            </div>
+            <div class="text-center">
+                <h5>Your Score</h5>
+                <h4 id="user-score">0</h4>
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-center align-items-center" style="height: 70vh;">
+            <div class="">
+                <div class="text-center">
+                    <h4>Computer</h4>
+                    <h1 id="computer-ch" class="display-1"><img src="images/Rock.jpg">
+                    </h1>
+                    <div class="my-5">
+                        <p>
+                            <b id="message">Message</b>
+                        </p>
+
+                    </div>
+                    <h1 class="display-1" id="player-ch"><img src="images/Rock.jpg"></h1>
+                    <h4>You</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btns container fixed-top">
+        <div class = "row">
+            <button class="btn  col-8 btn-primary">
+                <img id="rock" src="images/Rock.jpg" alt="rock">
+            </button>
+            <button class="btn col-8 btn-primary ">
+                <img id="paper" src="images/Paper.jpg" alt="paper">
+            </button>
+            <button class="btn col-8 btn-primary">
+                <img id="scissors" src="images/Scissors.jpg" alt="scissors">
+            </button>
+        </div>
+    </div>
+
+
+
+
+
+
     <script>
-        let computerScore = 0;
-        let userScore = 0;
+        const btn_rock = document.querySelector('#rock');
+        const btn_paper = document.querySelector('#paper');
+        const btn_scissors = document.querySelector('#scissors');
+
+        let user = document.querySelector("#user-score");
+        let computer = document.querySelector("#comp-score");
+
+        let player_ch = document.querySelector("#player-ch");
+        let comp_ch = document.querySelector("#computer-ch");
+        let msg = document.querySelector("#message");
+        
+        let comp_score = 0;
+        let user_score = 0;
         let playerChoice;
         let computerChoice;
+
+        // if player click on rock button 
+        btn_rock.addEventListener('click', () => {
+            computerScore = 0;
+            userScore = 0;
+            playerChoice = "Rock";
+            computerChoice = computerPlay();  // set the generated computer choice
+            comp_ch.innerText = computerChoice;
+            let img = document.createElement('img');
+            img.src = "images/" + computerChoice + ".jpg";
+            comp_ch.appendChild(img);
+            player_ch.innerText = playerChoice;
+            const rockImage = document.createElement('img')
+            rockImage.src = "images/rock.jpg";
+            player_ch.appendChild(rockImage);
+            //check for win 
+            playRound(computerChoice, playerChoice);
+        });
+        btn_paper.addEventListener('click', () => {
+            computerScore = 0;
+            userScore = 0;
+            playerChoice = "Paper";
+            computerChoice = computerPlay();  // set the generated computer choice
+            comp_ch.innerText = computerChoice;
+            let img = document.createElement('img');
+            img.src = "images/" + computerChoice + ".jpg";
+            comp_ch.appendChild(img);
+            player_ch.innerText = playerChoice;
+            const paperImage = document.createElement('img')
+            paperImage.src = "images/paper.jpg";
+            player_ch.appendChild(paperImage);
+            //check for win 
+            playRound(computerChoice, playerChoice);
+        });
+        btn_scissors.addEventListener('click', () => {
+            computerScore = 0;
+            userScore = 0;
+            playerChoice = "Scissors";
+            computerChoice = computerPlay();  // set the generated computer choice
+            comp_ch.innerText = computerChoice;
+            let img = document.createElement('img');
+            img.src = "images/" + computerChoice + ".jpg";
+            comp_ch.appendChild(img);
+            player_ch.innerText = playerChoice;
+            const scissorsImage = document.createElement('img')
+            scissorsImage.src = "images/scissors.jpg";
+            player_ch.appendChild(scissorsImage);
+            //check for win 
+            playRound(computerChoice, playerChoice);
+        });
 
         function computerPlay() {
             const choices = ["Rock", "Paper", "Scissors"];
@@ -20,54 +151,44 @@
             return choices[randomNumber];
         }
 
-        function playRound() {
+        function playRound(computerChoice, playerChoice) {
 
-            const computerChoice = computerPlay();
-            let userInput = prompt("Type Rock, Paper or Scissors to make a choice");
-
-            if (userInput === null || userInput === "null") {
-                console.log("In case you r bored bye and c u soon, else type a correct value");
-                return;
-            }
-
-            let playerChoice = userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
-
-
-            console.log(`Player: ${playerChoice}`)
-            console.log(`Computer: ${computerChoice}`)
+            //console.log(`Player: ${playerChoice}`)
+            //console.log(`Computer: ${computerChoice}`)
 
             if (playerChoice === computerChoice) {
-                console.log(`Its a draw! ${playerChoice} equals ${computerChoice}`);
-
+                msg.classList.remove("text-success");
+                msg.classList.remove("text-danger");
+                msg.innerText = `Its a draw! ${playerChoice} equals ${computerChoice}`;
             } else {
                 switch (playerChoice) {
                     case "Rock":
                         if (computerChoice === "Scissors") {
                             updateUserScore();
+                            finalResult();
                         } else {
                             updateComputerScore();
+                            finalResult();
                         }
                         break;
                     case "Paper":
                         if (computerChoice === "Rock") {
                             updateUserScore();
+                            finalResult();
                         } else {
                             updateComputerScore();
+                            finalResult();
                         }
                         break;
                     case "Scissors":
                         if (computerChoice === "Paper") {
                             updateUserScore();
+                            finalResult();
                         } else {
                             updateComputerScore();
-                        }
+                            finalResult();                        }
                         break;
-                    default: {
-                        console.log("Enter a proper value");
-                        console.log(playerChoice);
-                        playRound();
 
-                    }
 
                 }
 
@@ -77,41 +198,63 @@
         }
 
         function updateUserScore() {
-            userScore++;
-            console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+             
+            user_score++;
+            user.textContent = `${user_score}`;
+            msg.classList.remove("text-danger");
+            msg.classList.add("text-success");
+            msg.innerText = `You win! ${playerChoice} beats ${computerChoice}`;
         }
 
         function updateComputerScore() {
-            computerScore++;
-            console.log(`You lose! ${computerChoice} beats ${playerChoice}`);
+            
+            comp_score++;
+            computer.textContent = `${comp_score}`;
+            msg.classList.remove("text-success");
+            msg.classList.add("text-danger");
+            msg.innerText = `You lose! ${computerChoice} beats ${playerChoice}`;
         }
 
         function finalResult() {
-            if (computerScore > userScore) {
+            if (comp_score == 5) {
+                msg.classList.remove("text-success");
+                msg.classList.add("text-danger");
+                msg.innerText = "You lose the game.";
+                user_score = 0;
+                comp_score = 0;
+                user.textContent = `${user_score}`;
+                computer.textContent = `${comp_score}`;
 
-                console.log("You lose the game.")
-            } else if (userScore > computerScore) {
-                console.log("You win the game.");
-            } else {
-                console.log("Its a draw");
+
+            } else if (user_score == 5) {
+                msg.classList.remove("text-danger");
+                msg.classList.add("text-success");
+                msg.innerText = "You win the game.";
+                user_score = 0;
+                comp_core = 0;
+                user.textContent = `${user_score}`;
+                computer.textContent = `${comp_score}`;
+
+
             }
         }
 
-        function game() {
+        
+ 
 
-            for (let i = 0; i < 5; i++) {
+            
+        
 
-                playRound();
-                console.log(`Your score is ${userScore}.`);
-                console.log(`Computer's score is ${computerScore}.`);
+    
 
-            }
 
-            finalResult();
-        }
-
-        game();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
