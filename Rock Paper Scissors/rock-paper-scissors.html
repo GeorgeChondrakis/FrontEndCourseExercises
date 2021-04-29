@@ -8,16 +8,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <style>
-        
         img {
             width: 100px;
         }
 
         .btns {
+            
             width: 18%;
             margin-top: 200px;
-            margin-right: 800px;
-            
+            margin-right: 900px;
+
+        }
+        .btn {
+        background-color: unset;
         }
     </style>
 </head>
@@ -60,11 +63,11 @@
     </div>
 
     <div class="btns container fixed-top">
-        <div class = "row">
+        <div class="row">
             <button class="btn  col-8 btn-primary">
                 <img id="rock" src="images/Rock.jpg" alt="rock">
             </button>
-            <button class="btn col-8 btn-primary ">
+            <button class="btn col-8 btn-primary">
                 <img id="paper" src="images/Paper.jpg" alt="paper">
             </button>
             <button class="btn col-8 btn-primary">
@@ -89,13 +92,12 @@
         let player_ch = document.querySelector("#player-ch");
         let comp_ch = document.querySelector("#computer-ch");
         let msg = document.querySelector("#message");
-        
+
         let comp_score = 0;
         let user_score = 0;
         let playerChoice;
         let computerChoice;
 
-        // if player click on rock button 
         btn_rock.addEventListener('click', () => {
             computerScore = 0;
             userScore = 0;
@@ -112,6 +114,7 @@
             //check for win 
             playRound(computerChoice, playerChoice);
         });
+        // if player click on paper button 
         btn_paper.addEventListener('click', () => {
             computerScore = 0;
             userScore = 0;
@@ -128,6 +131,7 @@
             //check for win 
             playRound(computerChoice, playerChoice);
         });
+        // if player click on scissors button 
         btn_scissors.addEventListener('click', () => {
             computerScore = 0;
             userScore = 0;
@@ -186,7 +190,8 @@
                             finalResult();
                         } else {
                             updateComputerScore();
-                            finalResult();                        }
+                            finalResult();
+                        }
                         break;
 
 
@@ -198,7 +203,7 @@
         }
 
         function updateUserScore() {
-             
+
             user_score++;
             user.textContent = `${user_score}`;
             msg.classList.remove("text-danger");
@@ -207,7 +212,7 @@
         }
 
         function updateComputerScore() {
-            
+
             comp_score++;
             computer.textContent = `${comp_score}`;
             msg.classList.remove("text-success");
@@ -238,15 +243,6 @@
 
             }
         }
-
-        
- 
-
-            
-        
-
-    
-
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
