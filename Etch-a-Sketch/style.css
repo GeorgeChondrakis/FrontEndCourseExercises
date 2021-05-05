@@ -27,5 +27,5 @@ section h1 {
     width: 600px;
     height: 600px;
     display: grid;
-    z-index: 10;
+    z-index: 11;
 }
