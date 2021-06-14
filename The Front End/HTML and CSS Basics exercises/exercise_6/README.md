@@ -1,0 +1,1 @@
+I didn't create copies of my previous HTML pages because I already used CSS styling. If I should make something more let me know, thank you.
