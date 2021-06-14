@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Fundamentals 3</title>
+</head>
+<body>
+    <script>
+
+ // 1) Function Declaration   
+function add7(number){
+  return number + 7;
+}
+
+// 2) Function Expression  
+const multiply = function(x,y){
+  return x * y;
+}
+
+// 3) Arrow function
+let capitalize = (word)=>{
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();  
+}
+//console.log(capitalize("lEtS sEe If ThAt WoRkS!"));
+
+// 4) Function Declaration 
+function lastLetter(word){
+            return word.charAt(word.length - 1);
+        }
+//console.log(lastLetter("Aloha"));
+
+    </script>
+</body>
+</html>
