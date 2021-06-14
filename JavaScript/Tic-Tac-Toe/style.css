@@ -1,0 +1,237 @@
+
+body{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#f3c221 , #a13b0b);
+  }
+  .bubbles{
+    position: absolute;
+    bottom: -120px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .bubbles span{
+    height: 260px;
+    width: 260px;
+    background: rgba(255, 255, 255, 0.1);
+    animation: move 10s linear infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  @keyframes move {
+    100%{
+      transform: translateY(-100vh);
+    }
+  }
+  .bubbles span.one{
+    animation-delay: 2.2s;
+    transform: scale(2.15)
+  }
+  .bubbles span.two{
+    animation-delay: 3.5s;
+    transform: scale(1.55)
+  }
+  .bubbles span.three{
+    animation-delay: 0.2s;
+    transform: scale(0.35)
+  }
+  .bubbles span.four{
+    animation-delay: 6s;
+    transform: scale(2.15)
+  }
+  .bubbles span.five{
+    animation-delay: 7s;
+    transform: scale(10.5)
+  }
+  .bubbles span.six{
+    animation-delay: 4s;
+    transform: scale(12.5)
+  }
+  .bubbles span.seven{
+    animation-delay: 3s;
+    transform: scale(1.15)
+  }
+  .bubbles span:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 60px;
+    width: 40%;
+    transform: skew(45deg) translateX(150px);
+    background: rgba(255, 255, 255, 0.15);
+    animation: mirror 3s linear infinite;
+  }
+  @keyframes mirror {
+    100%{
+      transform: translateX(-450px);
+    }
+  }
+  .bubbles span.one:before{
+    animation-delay: 1.5s;
+  }
+  .bubbles span.two:before{
+    animation-delay: 3.5s;
+  }
+  .bubbles span.three:before{
+    animation-delay: 2.5s;
+  }
+  .bubbles span.four:before{
+    animation-delay: 7.5s;
+  }
+  .bubbles span.five:before{
+    animation-delay: 4.5s;
+  }
+  .bubbles span.six:before{
+    animation-delay: 0.5s;
+  }
+  .bubbles span.seven:before{
+    animation-delay: 6s;
+  }
+
+.container{
+    width: 450px;
+    height: 450px;
+    display: block;
+    margin: 25px auto;
+    position: relative;
+    background-color: tan;
+}
+
+#cvs{
+    position: absolute;
+    border: 1px solid #000;
+}
+
+.options{
+    position: absolute;
+    width: 450px;
+    height: 470px;
+}
+
+.options h1{
+    text-align: center;
+    font-size: 65px;
+    font-family: 'Times';
+    color: rgb(219, 235, 227);
+    margin: 30px;
+    padding-top: 10px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border: 2px solid rgb(134, 94, 19);
+}
+
+.options h2{
+    font-family:'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+.options div{
+    display: inline-block;
+}
+
+.options .computer, .x{
+    font-family: 'Times', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+    background-color: #FFF;
+    color: #000;
+    font-size: 1.5em;
+    border-radius: 5px;
+    margin-left: 70px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.options .friend, .o{
+    font-family:'Times', Arial, sans-serif;
+    padding: 5px;
+    background-color: #FFF;
+    color: #000;
+    font-size: 1.5em;
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.options .friend:hover, .computer:hover, .x:hover, .o:hover{
+    background-color: #000000;
+    color: #FFF;
+}
+
+.options .play{
+    font-family: "Times";
+    font-size: 1.5em;
+    width: 70px;
+    display: block;
+    margin: 25px auto;
+    border-radius: 5px;
+    border: 2px solid #665f10;
+    text-align: center;
+    padding: 10px;
+    background-color: #000000;
+    color: #FFF;
+    cursor: pointer;
+    transition: 100ms width ease-in;
+}
+.options .play:hover{
+    width: 110px;
+}
+
+.active{
+    background-color: #000000 !important;
+    color: #FFF !important;
+}
+
+.hide{
+    display: none;
+}
+
+.gameover{
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+.gameover h1{
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Fascinate Inline', cursive;
+    color: #fff;
+    margin: 40px 0 20px 0;
+}
+
+.gameover .winner-img{
+    display: block;
+    margin: 20px auto;
+}
+
+.gameover .play{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5em;
+    width: 150px;
+    display: block;
+    margin: 25px auto;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    transition: 100ms width ease-in;
+}
+.gameover .play:hover{
+    width: 200px;
+}
