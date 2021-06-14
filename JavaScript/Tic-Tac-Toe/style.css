@@ -20,8 +20,8 @@ body{
   .bubbles span{
     height: 260px;
     width: 260px;
-    background: rgba(255, 255, 255, 0.1);
-    animation: move 10s linear infinite;
+    background: rgba(252, 113, 0, 0.596);
+    animation: move 20s linear infinite;
     position: relative;
     overflow: hidden;
   }
@@ -36,27 +36,27 @@ body{
   }
   .bubbles span.two{
     animation-delay: 3.5s;
-    transform: scale(1.55)
+    transform: scale(3.55)
   }
   .bubbles span.three{
-    animation-delay: 0.2s;
-    transform: scale(0.35)
+    animation-delay: 0s;
+    transform: scale(3 .35)
   }
   .bubbles span.four{
-    animation-delay: 6s;
-    transform: scale(2.15)
+    animation-delay: 0s;
+    transform: scale(3.15)
   }
   .bubbles span.five{
-    animation-delay: 7s;
-    transform: scale(10.5)
+    animation-delay: 0s;
+    transform: scale(4.5)
   }
   .bubbles span.six{
-    animation-delay: 4s;
-    transform: scale(12.5)
+    animation-delay: 1s;
+    transform: scale(5.5)
   }
   .bubbles span.seven{
-    animation-delay: 3s;
-    transform: scale(1.15)
+    animation-delay: 0s;
+    transform: scale(3.15)
   }
   .bubbles span:before{
     content: '';
@@ -103,11 +103,14 @@ body{
     margin: 25px auto;
     position: relative;
     background-color: tan;
+    border-radius: 100px;
 }
 
 #cvs{
     position: absolute;
     border: 1px solid #000;
+    border-radius: 100px;
+    margin-left: -1px;
 }
 
 .options{
@@ -120,11 +123,11 @@ body{
     text-align: center;
     font-size: 65px;
     font-family: 'Times';
-    color: rgb(219, 235, 227);
+    color: rgb(255, 117, 4);
     margin: 30px;
     padding-top: 10px;
     background-color: rgba(0, 0, 0, 0.95);
-    border: 2px solid rgb(134, 94, 19);
+    border: 2px solid rgb(255, 117, 4);
 }
 
 .options h2{
@@ -177,7 +180,7 @@ body{
     display: block;
     margin: 25px auto;
     border-radius: 5px;
-    border: 2px solid #665f10;
+    border: 2px solid rgb(255, 117, 4);
     text-align: center;
     padding: 10px;
     background-color: #000000;
@@ -202,13 +205,15 @@ body{
     position: absolute;
     width: 450px;
     height: 450px;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgb(255, 117, 4);
+    border-radius: 50px;
+    border-color: 5px black;
 }
 .gameover h1{
     text-align: center;
     font-size: 50px;
-    font-family: 'Fascinate Inline', cursive;
-    color: #fff;
+    font-family: 'Times', cursive;
+    color: rgb(0, 0, 0);
     margin: 40px 0 20px 0;
 }
 
@@ -218,15 +223,15 @@ body{
 }
 
 .gameover .play{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Times', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.5em;
     width: 150px;
     display: block;
-    margin: 25px auto;
-    border-radius: 5px;
+    margin: 20px auto;
+    border-radius: 100px;
     border: 1px solid #fff;
     text-align: center;
-    padding: 10px;
+    padding: 40px 80px;
     background-color: #fff;
     color: #000;
     cursor: pointer;

@@ -1,5 +1,5 @@
 function init(player, OPPONENT){
-    // SELECT CANAVS
+    // SELECT CANVAS
     const canvas = document.getElementById("cvs");
     const ctx = canvas.getContext("2d");
 
@@ -136,7 +136,7 @@ function init(player, OPPONENT){
         if( isWinner(gameData, player.man)      ) return { evaluation : -10 };
         if( isTie(gameData)                     ) return { evaluation : 0 };
 
-        // LOOK FOR EMTY SPACES
+        // LOOK FOR EMPTY SPACES
         let EMPTY_SPACES = getEmptySpaces(gameData);
 
         // SAVE ALL MOVES AND THEIR EVALUATIONS
